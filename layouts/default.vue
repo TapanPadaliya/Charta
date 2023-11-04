@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-blue-300">
     <header>
       <ul class="flex justify-between items-center bg-gray-800">
         <li>
@@ -39,7 +39,7 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { useAuthStore } from "~/store/auth";
+import { useAuthStore } from "~/store/auth.js";
 
 const router = useRouter();
 
