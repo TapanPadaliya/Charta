@@ -39,7 +39,7 @@
 </template>
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { useAuthStore } from "~/store/auth";
+import { useAuthStore } from "~/store/auth.js";
 
 const { authenticateUser } = useAuthStore(); // use auth store
 

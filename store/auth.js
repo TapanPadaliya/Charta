@@ -1,19 +1,14 @@
 import { defineStore } from 'pinia';
 
-interface UserPayloadInterface {
-    username: string;
-    password: string;
-}
-
 export const useAuthStore = defineStore('auth', {
     state: () => ({
         authenticated: false,
         loading: false,
     }),
     actions: {
-        async authenticateUser({ username, password }: UserPayloadInterface) {
+        async authenticateUser({ username, password }) {
             // useFetch from nuxt 3
-            const { data, pending }: any = await useFetch('https://dummyjson.com/auth/login', {
+            const { data, pending } = await useFetch('https://dummyjson.com/auth/login', {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: {
