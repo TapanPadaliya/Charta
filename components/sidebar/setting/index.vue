@@ -2,7 +2,7 @@
   <aside class="min-w-[200px] w-[200px] bg-zinc-700 text-white">
     <!-- File Name -->
     <div class="bg-zinc-800 py-3 px-4 truncate m-2 rounded-md">
-      {{ folderDetail?.folderName }}
+      Settings
     </div>
     <!-- Files Bar -->
     <div class="p-2 space-y-2">
@@ -19,14 +19,13 @@
 <script setup>
 import { useFolderStore } from "@/store/folderStore";
 import { ref } from "vue";
-import { useRoute } from "vue-router";
 const { $bus } = useNuxtApp();
 const folders = useFolderStore();
-const route = useRoute();
+
 let folderDetail = ref(null);
 
 onMounted(() => {
-  folderDetail.value = folders.getFolderDetails(route?.fullPath.slice(1));
+  folderDetail.value = folders.getFolderDetails("tapan");
 });
 
 const getFolderDetail = (slug) => {
