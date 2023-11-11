@@ -1,13 +1,19 @@
 <template>
-  <div class="flex h-screen flex-row bg-zinc-200">
-    <SidebarServerBar />
-    <SidebarChannelBar />
-    <div class="md:flex hidden">
-      <NuxtPage />
+  <div class="bg-zinc-950 private">
+    <div class="flex h-screen flex-row bg-zinc-200">
+      <SidebarServerBar />
+      <SidebarChannelBar />
+      <div class="md:block hidden p-4">
+        <NuxtPage />
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {};
 </script>
-<style lang=""></style>
+<style>
+.private {
+  font-family: "inter";
+}
+</style>

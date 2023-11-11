@@ -1,4 +1,8 @@
 <template>
-  <div>Home Page</div>
+  <div>Home</div>
 </template>
-<script lang="ts" setup></script>
+<script setup lang="ts">
+definePageMeta({
+  layout: "private",
+});
+</script>

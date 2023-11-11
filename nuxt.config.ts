@@ -2,13 +2,19 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
-
+  // css: ["@/assets/css/main.css"],
   ssr: false,
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/google-fonts"],
   app: {
     head: {
       link: [{ rel: "icon", type: "image/png", href: "/images/Charta.png" }],
       title: "Charta",
     },
+  },
+  googleFonts: {
+    families: {
+      Inter: true,
+    },
+    display: "swap",
   },
 });
