@@ -13,6 +13,6 @@ definePageMeta({
 });
 const route = useRoute();
 const servers = useServerStore();
-const serverDetail = servers.getServerDetails(route.fullPath);
+const serverDetail = servers.getServerDetails(route.fullPath.slice(1));
 </script>
 <style lang=""></style>

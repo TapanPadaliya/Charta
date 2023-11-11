@@ -11,6 +11,8 @@ export default defineNuxtConfig({
       title: "Charta",
     },
   },
+  plugins: ["~/plugins/event-bus"],
+
   router: {
     options: {
       linkActiveClass: "navactive",

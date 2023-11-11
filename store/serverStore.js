@@ -36,7 +36,7 @@ export const useServerStore = defineStore({
         });
         this.saveToLocalStorage();
       } else {
-        console.log("Server Already Exist");
+        console.error("Server Already Exist");
       }
     },
 
@@ -44,7 +44,7 @@ export const useServerStore = defineStore({
     getServerDetails(slug) {
       let serverDetail = null;
       const serverExists = this.servers.some((server) => {
-        if (server.serverSlug === slug.slice(1)) {
+        if (server.serverSlug === slug) {
           serverDetail = server;
         } else {
           return null;
@@ -74,7 +74,6 @@ export const useServerStore = defineStore({
 
     // get Server Slug
     getServerSlug(inputText) {
-      console.log("Replacing Slug for  :", inputText);
       let lowercaseText = inputText.replace(/[A-Z]/g, (match) =>
         match.toLowerCase()
       );

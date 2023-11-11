@@ -1,5 +1,8 @@
 <template>
-  <div>Please Select Server to wrok</div>
+  <div class="p-4">
+    <div></div>
+    <div>Please Select Channel to See Go Ahead</div>
+  </div>
 </template>
 <script setup lang="ts">
 definePageMeta({
