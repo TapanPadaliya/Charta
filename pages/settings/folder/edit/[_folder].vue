@@ -1,5 +1,6 @@
 <template>
   Folder Slug
+  <SettingHeading label="Edit Profile" />
   {{ route.fullPath }}
   <div>{{ folderDetail }}</div>
 </template>

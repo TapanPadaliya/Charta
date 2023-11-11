@@ -1,0 +1,19 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 256 256"
+  >
+    <path
+      fill="currentColor"
+      d="M128 80a48 48 0 1 0 48 48a48 48 0 0 0-48-48Zm0 60a12 12 0 1 1 12-12a12 12 0 0 1-12 12Z"
+    ></path>
+  </svg>
+</template>
+
+<script>
+export default {
+  name: "PhDotFill",
+};
+</script>

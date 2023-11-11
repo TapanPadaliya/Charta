@@ -21,6 +21,7 @@
         :src="detail?.folderImageUrl"
         class="max-w-xs max-h-xs rounded-lg border border-zinc-800"
       />
+      <IconsFile class="h-32 w-32" v-else />
     </div>
 
     <!-- Folder Name -->

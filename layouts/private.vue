@@ -12,7 +12,6 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 const router = useRoute();
-console.log(router);
 const isShowFilebar = computed(() => {
   if (router.fullPath !== "/") {
     if (router.fullPath !== "/settings") {

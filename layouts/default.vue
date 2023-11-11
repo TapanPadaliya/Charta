@@ -10,7 +10,7 @@
       />
       <span class="text-xl md:text-2xl">Charta</span>
     </div>
-    <div class="bg-zinc-700 rounded-lg border border-zinc-600 p-4">
+    <div class="bg-zinc-700 rounded-lg border border-zinc-600 p-4 overflow-y-auto">
       <NuxtPage />
     </div>
   </div>

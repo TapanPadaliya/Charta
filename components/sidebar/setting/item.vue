@@ -1,9 +1,9 @@
 <template>
   <NuxtLink :to="to" active-class="active-file">
     <div
-      class="w-full bg-zinc-800 rounded px-2 py-1 flex items-center gap-2 font-normal"
+      class="w-full bg-zinc-800 hover:bg-zinc-900 rounded px-2 py-1 flex items-center gap-2 font-normal"
     >
-      <IconsHash class="h-5 w-5" :class="`text-${colors[randomColor]}`" />
+      <IconsDot class="h-5 w-5" :class="`text-${colors[randomColor]}`" />
       <span>
         {{ name }}
       </span>

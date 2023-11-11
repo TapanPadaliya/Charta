@@ -12,7 +12,7 @@
       <SidebarFileBarItem />
     </div>
   </aside>
-  <div class="p-2 w-full">
+  <div class="p-2 w-full overflow-y-auto">
     <NuxtPage />
   </div>
 </template>
