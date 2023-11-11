@@ -3,7 +3,7 @@
     <div class="flex h-screen flex-row bg-zinc-300 transition-all duration-300">
       <SidebarFolderBar />
       <SidebarSetting v-if="isShowSettingbar" />
-      <SidebarFileBar v-if="isShowFilebar" />
+      <SidebarFileBar v-else-if="isShowFilebar" />
       <Welcome v-else class="w-full" />
     </div>
   </div>

@@ -1,7 +1,6 @@
 <!-- YourComponent.vue -->
 <template>
   <div>
-    <!-- {{ folders.getAllFolders }} -->
     <div
       v-for="(folder, i) in folders.getAllFolders"
       :key="i"
