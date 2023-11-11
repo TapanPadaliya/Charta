@@ -12,7 +12,7 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 const router = useRoute();
-
+console.log(router);
 const isShowFilebar = computed(() => {
   if (router.fullPath !== "/") {
     if (router.fullPath !== "/settings") {
@@ -22,8 +22,9 @@ const isShowFilebar = computed(() => {
     return false;
   }
 });
+
 const isShowSettingbar = computed(() => {
-  if (router.fullPath == "/settings") {
+  if (router.fullPath.slice(0, 9) == "/settings") {
     return true;
   } else {
     return false;

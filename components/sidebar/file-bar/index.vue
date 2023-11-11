@@ -1,7 +1,7 @@
 <template>
   <aside class="min-w-[200px] w-[200px] bg-zinc-700 text-white">
     <!-- File Name -->
-    <div class="bg-zinc-800 py-3 px-4 truncate m-2 rounded-md">
+    <div class="bg-zinc-800 py-3 px-4 truncate m-2 rounded-md font-semibold">
       {{ folderDetail?.folderName }}
     </div>
     <!-- Files Bar -->
@@ -12,7 +12,7 @@
       <SidebarFileBarItem />
     </div>
   </aside>
-  <div class="p-4">
+  <div class="p-2 w-full">
     <NuxtPage />
   </div>
 </template>

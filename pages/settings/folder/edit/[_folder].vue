@@ -1,10 +1,7 @@
 <template>
-  <div class="text-xl text-gray-800">
-    <div v-if="folderDetail">
-      <FolderLanding :detail="folderDetail" />
-    </div>
-    <span v-else>No Folder Found</span>
-  </div>
+  Folder Slug
+  {{ route.fullPath }}
+  <div>{{ folderDetail }}</div>
 </template>
 <script setup>
 import { useRoute } from "vue-router";
@@ -15,6 +12,6 @@ definePageMeta({
 });
 const route = useRoute();
 const folders = useFolderStore();
-const folderDetail = folders.getFolderDetails(route.fullPath.slice(1));
+const folderDetail = folders.getFolderDetails(route.fullPath.slice(22));
 </script>
 <style lang=""></style>
