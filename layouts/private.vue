@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-zinc-950 private">
+  <div class="bg-zinc-950 private overflow-hidden">
     <div class="flex h-screen flex-row bg-zinc-200">
       <SidebarServerBar />
       <SidebarChannelBar />

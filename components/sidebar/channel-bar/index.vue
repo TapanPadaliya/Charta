@@ -1,7 +1,7 @@
 <template>
   <aside class="w-full sm:w-52 bg-zinc-700 text-white">
     <!-- Channel Name -->
-    <div class="bg-zinc-800 p-4 truncate">Channel Name</div>
+    <div class="bg-zinc-800 p-4 truncate m-2 rounded-md">Channel Name</div>
     <!-- Channels Bar -->
     <div class="p-4">
       <h2 class="font-bold">Aside Sidebar</h2>
@@ -16,7 +16,5 @@
     </div>
   </aside>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang=""></style>
