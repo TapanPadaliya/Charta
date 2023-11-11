@@ -17,7 +17,8 @@
     <p class="text-center">Other Features Upcoming</p>
   </div>
 </template>
-<script setup lang="ts">
+<script setup>
+const { $bus } = useNuxtApp();
 definePageMeta({
   layout: "private",
 });
@@ -29,6 +30,7 @@ const clearLocalStore = () => {
   );
   if (person == "yes") {
     localStorage.clear();
+    $bus.$emit("update-sidebar");
     setTimeout(() => {
       alert("LocalStorage Cleared");
     }, 500);

@@ -34,7 +34,6 @@
 
     <!-- Folder Slug -->
     <div class="flex items-center justify-center flex-col">
-      <span class="text-xs">Folder Slug</span>
       <NuxtLink :to="detail?.folderSlug">
         <p class="text-2xl">
           {{ detail?.folderSlug }}

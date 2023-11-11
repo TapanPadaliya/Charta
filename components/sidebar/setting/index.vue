@@ -27,13 +27,8 @@
   </div>
 </template>
 <script setup>
-import { useFolderStore } from "@/store/folderStore";
 import { useRoute } from "vue-router";
-import { ref } from "vue";
-const { $bus } = useNuxtApp();
-const folders = useFolderStore();
 const route = useRoute();
-let folderDetail = ref(null);
 
 const navigation = [
   { to: "/settings/profile", name: "Users" },
@@ -41,17 +36,5 @@ const navigation = [
   { to: "/settings/files", name: "Files" },
   { to: "/settings/system-settings", name: "System" },
 ];
-onMounted(() => {
-  // console.log("Inside Setting", route);
-  // folderDetail.value = folders.getFolderDetails("tapan");
-});
-
-const getFolderDetail = (slug) => {
-  folderDetail.value = folders.getFolderDetails(slug);
-};
-
-$bus.$on("update-sidebar", (slug) => {
-  getFolderDetail(slug);
-});
 </script>
 <style lang=""></style>

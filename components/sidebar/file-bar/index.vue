@@ -6,11 +6,11 @@
     </div>
     <!-- Files Bar -->
     <div class="p-2 space-y-2">
-      <SidebarFileBarItem />
-      <SidebarFileBarItem />
-      <SidebarFileBarItem />
-      <SidebarFileBarItem />
+      <div v-for="(item, i) in folderDetail?.files" :key="i">
+        <SidebarFileBarItem :name="item?.fileName" />
+      </div>
     </div>
+    <SidebarFileBarNew :folder-id="folderDetail?.folderId" />
   </aside>
   <div class="p-2 w-full overflow-y-auto">
     <NuxtPage />
@@ -34,7 +34,11 @@ const getFolderDetail = (slug) => {
 };
 
 $bus.$on("update-sidebar", (slug) => {
-  getFolderDetail(slug);
+  if (slug) {
+    getFolderDetail(slug);
+  } else {
+    getFolderDetail(route?.fullPath.slice(1));
+  }
 });
 </script>
 <style lang=""></style>

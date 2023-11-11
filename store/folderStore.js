@@ -27,16 +27,52 @@ export const useFolderStore = defineStore({
       );
 
       if (!folderExists) {
-        const newId = this.generateId(10);
+        const newId = this.generateId(40);
+        const files = [
+          {
+            folderId: newId,
+            fileId: this.generateId(25),
+            fileName: "Index",
+          },
+        ];
         this.folders.push({
           folderId: newId,
           folderName: folderName,
           folderSlug: newSlug,
           folderImageUrl: folderImageUrl,
+          files: files,
         });
         this.saveToLocalStorage();
       } else {
         console.error("Folder Already Exist");
+      }
+    },
+
+    // Add File
+    addFile(folderId, fileName) {
+      const targetFolderIndex = this.folders.findIndex(
+        (folder) => folder.folderId == folderId
+      );
+      if (targetFolderIndex !== -1) {
+        const newFile = {
+          folderId: folderId,
+          fileId: this.generateId(25),
+          fileName: fileName,
+        };
+
+        if (this.folders[targetFolderIndex]?.files) {
+          this.folders[targetFolderIndex].files.push(newFile);
+        } else {
+          this.folders[targetFolderIndex] = {
+            ...this.folders[targetFolderIndex],
+            files: [],
+          };
+          this.folders[targetFolderIndex].files.push(newFile);
+        }
+
+        this.saveToLocalStorage();
+      } else {
+        console.error("Folder not found");
       }
     },
 
