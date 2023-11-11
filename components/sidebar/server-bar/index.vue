@@ -7,7 +7,7 @@
       <SidebarServerBarServer />
     </div>
 
-    <div class="absolute w-16 bottom-0 z-50 my-2">
+    <div class="absolute w-16 bottom-0 z-50 bg-zinc-900 py-2">
       <SidebarServerBarSetting />
     </div>
   </aside>

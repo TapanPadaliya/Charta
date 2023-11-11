@@ -3,7 +3,7 @@
     <div class="flex h-screen flex-row bg-zinc-200">
       <SidebarServerBar />
       <SidebarChannelBar />
-      <div class="md:block hidden p-4">
+      <div class="p-4">
         <NuxtPage />
       </div>
     </div>

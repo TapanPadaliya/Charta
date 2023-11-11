@@ -1,5 +1,5 @@
 <template>
-  <div>Hello</div>
+  <div>Please Select Server to wrok</div>
 </template>
 <script setup lang="ts">
 definePageMeta({

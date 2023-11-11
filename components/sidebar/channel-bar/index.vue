@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-full sm:w-52 bg-zinc-700 text-white">
+  <aside class="min-w-[200px] bg-zinc-700 text-white">
     <!-- Channel Name -->
     <div class="bg-zinc-800 p-4 truncate m-2 rounded-md">Channel Name</div>
     <!-- Channels Bar -->
