@@ -28,19 +28,19 @@ export const useFolderStore = defineStore({
 
       if (!folderExists) {
         const newId = this.generateId(40);
-        const files = [
-          {
-            folderId: newId,
-            fileId: this.generateId(25),
-            fileName: "Index",
-          },
-        ];
+        // const files = [
+        //   {
+        //     folderId: newId,
+        //     fileId: this.generateId(25),
+        //     fileName: "Index",
+        //   },
+        // ];
         this.folders.push({
           folderId: newId,
           folderName: folderName,
           folderSlug: newSlug,
           folderImageUrl: folderImageUrl,
-          files: files,
+          files: [],
         });
         this.saveToLocalStorage();
       } else {
@@ -71,6 +71,7 @@ export const useFolderStore = defineStore({
         }
 
         this.saveToLocalStorage();
+        return newFile.fileId;
       } else {
         console.error("Folder not found");
       }

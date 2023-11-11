@@ -32,7 +32,10 @@ const clearLocalStore = () => {
     localStorage.clear();
     $bus.$emit("update-sidebar");
     setTimeout(() => {
-      alert("LocalStorage Cleared");
+      alert("LocalStorage Cleared, Wait for Refresh");
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
     }, 500);
   }
 };

@@ -1,16 +1,24 @@
 <template>
   <aside class="min-w-[200px] w-[200px] bg-zinc-700 text-white">
     <!-- File Name -->
-    <div class="bg-zinc-800 py-3 px-4 truncate m-2 rounded-md font-semibold">
-      {{ folderDetail?.folderName }}
-    </div>
+    <NuxtLink :to="folderDetail?.folderSlug">
+      <div class="bg-zinc-800 py-3 px-4 truncate m-2 rounded-md font-semibold">
+        {{ folderDetail?.folderName }}
+      </div></NuxtLink
+    >
     <!-- Files Bar -->
     <div class="p-2 space-y-2">
       <div v-for="(item, i) in folderDetail?.files" :key="i">
-        <SidebarFileBarItem :name="item?.fileName" />
+        <SidebarFileBarItem
+          :name="item?.fileName"
+          @click="seeDetails(item?.fileId)"
+        />
       </div>
     </div>
-    <SidebarFileBarNew :folder-id="folderDetail?.folderId" />
+    <SidebarFileBarNew
+      :folder-id="folderDetail?.folderId"
+      class="absolute bottom-0 w-[184px] my-2"
+    />
   </aside>
   <div class="p-2 w-full overflow-y-auto">
     <NuxtPage />
@@ -31,6 +39,11 @@ onMounted(() => {
 
 const getFolderDetail = (slug) => {
   folderDetail.value = folders.getFolderDetails(slug);
+};
+
+const seeDetails = (id) => {
+  console.log("See Details");
+  $bus.$emit("see-details", id);
 };
 
 $bus.$on("update-sidebar", (slug) => {

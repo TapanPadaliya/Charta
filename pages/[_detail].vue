@@ -4,6 +4,9 @@
       <FolderLanding :detail="folderDetail" />
     </div>
     <span v-else>No Folder Found</span>
+    <div>
+      <FileEdit />
+    </div>
   </div>
 </template>
 <script setup>
