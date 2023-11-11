@@ -1,56 +1,56 @@
 <!-- YourComponent.vue -->
 <template>
   <div>
-    <!-- {{ servers.getAllServers }} -->
+    <!-- {{ folders.getAllFolders }} -->
     <div
-      v-for="(server, i) in servers.getAllServers"
+      v-for="(folder, i) in folders.getAllFolders"
       :key="i"
       class="flex gap-2"
     >
       <img
-        v-if="server?.serverImageUrl"
-        :src="server?.serverImageUrl"
+        v-if="folder?.folderImageUrl"
+        :src="folder?.folderImageUrl"
         class="h-5 w-5 rounded-md"
       />
-      <span>{{ server?.serverSlug }}</span>
-      <button @click="removeServer(server.serverId)" class="text-red-400">
+      <span>{{ folder?.folderSlug }}</span>
+      <button @click="removeFolder(folder.folderId)" class="text-red-400">
         Remove
       </button>
     </div>
 
-    <form @submit.prevent="addServer">
+    <form @submit.prevent="addFolder">
       <label>
-        Server Name:
-        <input v-model="newServerName" required />
+        Folder Name:
+        <input v-model="newFolderName" required />
       </label>
       <label>
-        Server Image Url:
-        <input v-model="newServerImage" />
+        Folder Image Url:
+        <input v-model="newFolderImage" />
       </label>
-      <button type="submit">Add Server</button>
+      <button type="submit">Add Folder</button>
     </form>
   </div>
 </template>
 
 <script setup>
-import { useServerStore } from "@/store/serverStore";
+import { useFolderStore } from "@/store/folderStore";
 
 definePageMeta({
   layout: "private",
 });
 
-const servers = useServerStore();
-const newServerName = ref("");
-const newServerImage = ref("");
+const folders = useFolderStore();
+const newFolderName = ref("");
+const newFolderImage = ref("");
 
-const addServer = () => {
-  servers.addServer(newServerName.value, newServerImage.value);
-  // Clear the input fields after adding a server
-  newServerName.value = "";
-  newServerImage.value = "";
+const addFolder = () => {
+  folders.addFolder(newFolderName.value, newFolderImage.value);
+  // Clear the input fields after adding a folder
+  newFolderName.value = "";
+  newFolderImage.value = "";
 };
 
-const removeServer = (serverId) => {
-  servers.removeServer(serverId);
+const removeFolder = (folderId) => {
+  folders.removeFolder(folderId);
 };
 </script>

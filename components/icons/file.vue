@@ -14,6 +14,6 @@
 
 <script>
 export default {
-  name: "FluentChannel16Regular",
+  name: "FluentFile16Regular",
 };
 </script>
