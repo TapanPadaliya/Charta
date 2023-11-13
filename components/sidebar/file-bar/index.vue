@@ -1,7 +1,7 @@
 <template>
   <aside class="min-w-[200px] w-[200px] bg-zinc-700 text-white">
     <!-- File Name -->
-    <NuxtLink :to="folderDetail?.folderSlug">
+    <NuxtLink :to="folderDetail?.folderSlug" @click="seeFolderDetails()">
       <div class="bg-zinc-800 py-3 px-4 truncate m-2 rounded-md font-semibold">
         {{ folderDetail?.folderName }}
       </div></NuxtLink
@@ -11,7 +11,7 @@
       <div v-for="(item, i) in folderDetail?.files" :key="i">
         <SidebarFileBarItem
           :name="item?.fileName"
-          @click="seeDetails(item?.fileId)"
+          @click="seeDetails(item?.fileId, item?.fileName)"
         />
       </div>
     </div>
@@ -41,9 +41,12 @@ const getFolderDetail = (slug) => {
   folderDetail.value = folders.getFolderDetails(slug);
 };
 
-const seeDetails = (id) => {
-  console.log("See Details");
-  $bus.$emit("see-details", id);
+const seeFolderDetails = () => {
+  $bus.$emit("see-details");
+};
+
+const seeDetails = (id, name) => {
+  $bus.$emit("see-details", { id: id, name: name });
 };
 
 $bus.$on("update-sidebar", (slug) => {
