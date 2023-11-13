@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 export const useFileStore = defineStore({
   id: "file",
   state: () => ({
-    files: {},
+    files: [], // Use an array instead of an object
   }),
   getters: {
     getAllFiles() {
@@ -14,10 +14,10 @@ export const useFileStore = defineStore({
   },
   actions: {
     // Add File
-    addFile(pageId, value = null) {
+    addFile(pageId, value = "Hello World !") {
       this.loadFromLocalStorage();
       // Make a record with the key as pageId and value as either the passed value or null
-      this.files[pageId] = value;
+      this.files.push({ pageId, value });
       this.saveToLocalStorage();
     },
 
@@ -25,21 +25,25 @@ export const useFileStore = defineStore({
     getFileDetails(pageId) {
       this.loadFromLocalStorage();
       // Return file value based on pageId
-      return this.files[pageId];
+      const file = this.files.find((file) => file.pageId === pageId);
+      return file ? file.value : null;
     },
 
     // Update File
     updateFile(pageId, value) {
       this.loadFromLocalStorage();
       // Update the file with the new value
-      this.files[pageId] = value;
+      const index = this.files.findIndex((file) => file.pageId === pageId);
+      if (index !== -1) {
+        this.files[index].value = value;
+      }
       this.saveToLocalStorage();
     },
 
     // Remove File
     removeFile(pageId) {
-      // Fetch & delete where key pageId == pageId
-      delete this.files[pageId];
+      // Find and remove the file where pageId matches
+      this.files = this.files.filter((file) => file.pageId !== pageId);
       this.saveToLocalStorage();
     },
 
