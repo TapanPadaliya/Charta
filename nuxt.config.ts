@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/google-fonts"],
   app: {
     head: {
-      link: [{ rel: "icon", type: "image/png", href: "/images/Charta.png" }],
+      link: [{ rel: "icon", type: "image/png", href: "/images/charta.png" }],
       title: "Charta",
     },
   },
