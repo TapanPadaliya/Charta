@@ -1,35 +1,42 @@
 <template>
   <div>
-    <SettingHeading label="Edit" />
-
-    <!-- <div>Watching Data of : {{ watchedId }}</div>
-    <div>Details Are : {{ details }}</div>
-
-    <div v-html="details" class="border-black border-2"></div>
     <QuillEditor
-      v-model:content="details"
-      :toolbar="['bold', 'italic', 'underline']"
+      v-model:content="dataField"
+      toolbar="full"
       contentType="html"
-    /> -->
+      class="border border-black"
+      @update:content="updateConent"
+    />
   </div>
 </template>
 
 <script setup>
-// import { QuillEditor } from "@vueup/vue-quill";
+// Imports
+import { QuillEditor, Delta } from "@vueup/vue-quill";
+import { onMounted, defineProps, ref } from "vue";
+import { useFileStore } from "@/store/fileStore";
+import "@vueup/vue-quill/dist/vue-quill.snow.css";
+// Register Component
+const components = {
+  QuillEditor,
+};
 
-// import { useFileStore } from "@/store/fileStore";
-// import { ref } from "vue";
+// Define Props
+const props = defineProps(["details"]);
 
-// const components = {
-//   QuillEditor,
-// };
-// const { $bus } = useNuxtApp();
-// const files = useFileStore();
-// const watchedId = ref(null);
-// const details = ref(null);
+// Initial Records
+const { $bus } = useNuxtApp();
+const files = useFileStore();
+const watchedId = ref(null);
+const dataField = ref(null);
 
-// $bus.$on("ff-details", (id) => {
-//   watchedId.value = id;
-//   details.value = files.getFileDetails(id);
-// });
+// Setup On Mounted
+onMounted(async () => {
+  dataField.value = props.details;
+});
+
+// Update Content & Save
+const updateConent = async (data) => {
+  console.log("Updating Content", data);
+};
 </script>

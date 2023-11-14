@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-zinc-700 rounded-md text-white flex items-center justify-center gap-4"
+    class="bg-zinc-700 rounded-md text-white flex items-center justify-center gap-4 text-sm"
   >
     <button
       v-for="(item, i) in options"

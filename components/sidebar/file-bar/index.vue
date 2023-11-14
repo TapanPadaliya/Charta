@@ -20,7 +20,7 @@
       class="absolute bottom-0 w-[184px] my-2"
     />
   </aside>
-  <div class="p-2 w-full overflow-y-auto">
+  <div class="p-2 w-full">
     <NuxtPage />
   </div>
 </template>

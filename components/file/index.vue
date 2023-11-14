@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <FileHeading :label="sectionLabel">
       <template #default>
         <SettingChooseOptions
@@ -9,21 +9,15 @@
       </template>
     </FileHeading>
     <div class="my-2">
-      <FileView v-if="choosenOption == 1" />
-      <FileEdit v-if="choosenOption == 2" />
+      <FileView v-if="choosenOption == 1" :details="details" />
+      <FileEdit v-if="choosenOption == 2" :details="details" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { QuillEditor } from "@vueup/vue-quill";
-
 import { useFileStore } from "@/store/fileStore";
 import { ref } from "vue";
-
-const components = {
-  QuillEditor,
-};
 
 const options = [
   { id: 1, label: "View" },
