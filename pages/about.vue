@@ -2,10 +2,8 @@
   <div>About Page</div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 definePageMeta({
   layout: "private",
 });
-
-export default {};
 </script>

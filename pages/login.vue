@@ -1,38 +1,37 @@
 <template>
   <div>
-    <div class="flex justify-center">
-      <h2>Login</h2>
+    <div class="flex justify-center items-center gap-2 text-white">
+      <IconsLogin class="h-6 w-6" />
+      <h2 class="text-xl md:text-2xl">Login</h2>
     </div>
-    <div class="p-4">
+    <div class="p-4 text-white">
       <div class="border-3 border-gray-300 rounded-md">
-        <label for="uname" class="mb-2 block">
-          <b>Username</b>
-        </label>
+        <label for="uname" class="mb-2 block"> Username </label>
         <input
           type="text"
-          class="w-full border-gray-200 rounded-md p-2 mt-2"
+          class="w-full border-gray-200 rounded-md p-2 text-black"
           v-model="user.username"
           placeholder="Enter Username"
           name="uname"
           required
         />
-        <label for="psw" class="mb-2 block mt-4">
-          <b>Password</b>
-        </label>
+        <label for="psw" class="mb-2 block mt-4"> Password </label>
         <input
           type="password"
-          class="w-full border-gray-200 rounded-md p-2 mt-2"
+          class="w-full border-gray-200 rounded-md p-2 text-black mb-5"
           v-model="user.password"
           placeholder="Enter Password"
           name="psw"
           required
         />
-        <button
-          @click.prevent="login"
-          class="bg-green-500 text-white p-3 mt-4 rounded-md"
-        >
-          Login
-        </button>
+        <div class="w-full flex items-center justify-center">
+          <button
+            @click.prevent="login"
+            class="bg-red-300 text-white px-3 py-2 rounded-md"
+          >
+            Login
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -41,9 +40,9 @@
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "~/store/auth.js";
 
-const { authenticateUser } = useAuthStore(); // use auth store
+const { authenticateUser } = useAuthStore();
 
-const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive
+const { authenticated } = storeToRefs(useAuthStore());
 
 const user = ref({
   username: "kminchelle",
@@ -53,7 +52,6 @@ const router = useRouter();
 
 const login = async () => {
   await authenticateUser(user.value);
-  // redirect to homepage if user is authenticated
   if (authenticated) {
     router.push("/");
   }

@@ -5,13 +5,13 @@
     height="1em"
     viewBox="0 0 48 48"
   >
-    <g fill="none" stroke="currentColor" strokeWidth="4">
+    <g fill="none" stroke="currentColor" stroke-width="4">
       <path
-        strokeLinejoin="round"
+        stroke-linejoin="round"
         d="M24 5L2 43h44L24 5Z"
         clipRule="evenodd"
       ></path>
-      <path strokeLinecap="round" d="M24 35v1m0-17l.008 10"></path>
+      <path stroke-linecap="round" d="M24 35v1m0-17l.008 10"></path>
     </g>
   </svg>
 </template>
