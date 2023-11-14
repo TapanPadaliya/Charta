@@ -26,7 +26,7 @@
 </template>
 <script setup>
 import { useFolderStore } from "@/store/folderStore";
-import { ref } from "vue";
+import { ref, nextTick } from "vue";
 import { useRoute } from "vue-router";
 const { $bus } = useNuxtApp();
 const folders = useFolderStore();
@@ -42,10 +42,12 @@ const getFolderDetail = (slug) => {
 };
 
 const seeFolderDetails = () => {
-  $bus.$emit("see-details");
+  $bus.$emit("show-details");
 };
 
-const seeDetails = (id, name) => {
+const seeDetails = async (id, name) => {
+  $bus.$emit("show-details", { id: id, name: name });
+  await nextTick();
   $bus.$emit("see-details", { id: id, name: name });
 };
 

@@ -22,7 +22,7 @@ const folders = useFolderStore();
 const folderDetail = folders.getFolderDetails(route.fullPath.slice(1));
 
 // Checking Selected Availablity
-$bus.$on("see-details", (id) => {
+$bus.$on("show-details", (id) => {
   if (id) {
     watchedId.value = id;
   } else {
