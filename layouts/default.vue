@@ -4,7 +4,7 @@
   >
     <div class="flex items-center justify-center text-white gap-2">
       <img
-        src="/images/charta.png"
+        src="/images/Charta.png"
         alt="Charta Logo"
         class="aspect-square h-6"
       />
