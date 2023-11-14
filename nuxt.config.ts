@@ -2,7 +2,7 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  css: ["@/assets/css/main.css"],
+  css: ["@/assets/css/main.css", "@/assets/css/quill.css"],
   ssr: false,
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/google-fonts"],
   app: {
@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     },
   },
   plugins: ["~/plugins/event-bus"],
-
   router: {
     options: {
       linkActiveClass: "navactive",

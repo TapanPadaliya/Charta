@@ -30,10 +30,11 @@ export const useFileStore = defineStore({
     },
 
     // Update File
-    updateFile(pageId, value) {
+    async updateFile(pageId, value) {
       this.loadFromLocalStorage();
-      // Update the file with the new value
-      const index = this.files.findIndex((file) => file.pageId === pageId);
+      const index = await this.files.findIndex(
+        (file) => file.pageId === pageId
+      );
       if (index !== -1) {
         this.files[index].value = value;
       }

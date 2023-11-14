@@ -1,6 +1,6 @@
 <template>
   <div class="bg-zinc-950 private overflow-hidden">
-    <div class="flex h-screen flex-row bg-zinc-300 transition-all duration-300">
+    <div class="flex h-screen flex-row bg-zinc-100 transition-all duration-300">
       <SidebarFolderBar />
       <SidebarSetting v-if="isShowSettingbar" />
       <SidebarFileBar v-else-if="isShowFilebar" />

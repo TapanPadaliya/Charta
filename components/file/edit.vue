@@ -4,7 +4,7 @@
       v-model:content="dataField"
       toolbar="full"
       contentType="html"
-      class="border border-black"
+      class="border border-zinc-900 rounded-md z-30"
       @update:content="saveContent"
     />
   </div>
@@ -21,26 +21,23 @@
 import { useDebounceFn } from "@vueuse/core";
 import { QuillEditor, Delta } from "@vueup/vue-quill";
 import { onMounted, defineProps, ref } from "vue";
-import { useFileStore } from "@/store/fileStore";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
+import { useFileStore } from "@/store/fileStore";
 // Register Component
 const components = {
   QuillEditor,
 };
 
 // Define Props
-const props = defineProps(["details"]);
+const props = defineProps(["id"]);
 
 // Initial Records
-const { $bus } = useNuxtApp();
-const files = useFileStore();
-const watchedId = ref(null);
 const dataField = ref(null);
 const isLoading = ref(false);
-
+const files = useFileStore();
 // Setup On Mounted
 onMounted(async () => {
-  dataField.value = props.details;
+  dataField.value = files.getFileDetails(props.id);
 });
 
 // Update Content & Save
@@ -50,7 +47,23 @@ const saveContent = () => {
 };
 
 const updateConent = useDebounceFn(async () => {
-  console.log("Updating Contnet :", dataField.value);
+  // save Details
+  const response = files.updateFile(props.id, dataField.value);
   isLoading.value = false;
-}, 4000);
+}, 1500);
 </script>
+
+<style>
+.ql-formats {
+  @apply border p-0.5 border-zinc-400 rounded-md hover:border-zinc-900;
+}
+.ql-toolbar {
+  @apply space-y-2 border rounded-md;
+}
+.ql-hidden {
+  @apply hidden;
+}
+.ql-editor {
+  @apply text-xl;
+}
+</style>
