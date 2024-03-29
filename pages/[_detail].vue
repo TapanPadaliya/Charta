@@ -6,7 +6,7 @@
     <div v-else-if="folderDetail">
       <FolderLanding :detail="folderDetail" />
     </div>
-    <span v-else>No Folder Found</span>
+    <span v-else>No Folder Found.</span>
   </div>
 </template>
 <script setup>
