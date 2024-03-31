@@ -3,7 +3,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ["@/assets/css/main.css", "@/assets/css/quill.css"],
-  ssr: false,
+  ssr: true,
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/google-fonts"],
   app: {
     head: {
